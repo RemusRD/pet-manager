@@ -18,17 +18,9 @@ public class Application {
 
     @Bean
     public CommandLineRunner createMongoDbIndex(
-            AuthorRepository repository,
-            @Value("${spring.data.mongodb.uri}") String uri
+            AuthorRepository repository
     ) {
         return args -> {
-            final var author = Author.builder()
-                    .age(19)
-                    .firstName("David")
-                    .lastName("Fernandez")
-                    .build();
-            System.out.println(uri);
-            //repository.insert(author);
             //repository.findAuthorByFirstName(author.getFirstName());
             //Create indexes
         };

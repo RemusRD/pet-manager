@@ -5,7 +5,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.awt.print.Book;
 import java.util.List;
 
 @Document
@@ -14,13 +13,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Author {
+public class Book {
     @Id
     private String id;
-    @Indexed
-    private int age;
     @Indexed(unique = true)
-    private String firstName;
-    private String lastName;
-    private List<Book> books;
+    private String title;
+    private String authorId;
 }
