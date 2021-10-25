@@ -1,0 +1,8 @@
+compose-up: docker-build
+    docker-compose -f src/main/resources/docker-compose.yml up
+
+docker-build: package
+	docker build -t manager .
+
+package:
+    ./mvnw clean package
