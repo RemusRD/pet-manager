@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  nosql:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=morningbackend
+      - MONGO_INITDB_ROOT_PASSWORD=something
+  service:
+    image: manager
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://morningbackend:something@nosql:27017/test
+    depends_on:
+      nosql:
+        condition: service_started
+
